@@ -27,3 +27,7 @@
 					- Modifica archivo packages.config
 					- Crea carpeta fonts
 					- Modifica archivo xxx.web.csproj
+					
+			- Agregar jquery
+				- Install-Package jQuery -Version 3.4.1
+					- Esto agregará bootstrap, agregará jQuery
