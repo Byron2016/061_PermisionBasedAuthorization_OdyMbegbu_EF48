@@ -40,4 +40,11 @@
 			- Agregar Modernizr
 				- Install-Package Modernizr -Version 2.8.3
 				
-			
+			- Agregar Microsoft.AspNet.Web.Optimization
+				- Install-Package Microsoft.AspNet.Web.Optimization -Version 1.1.3
+					- Esto agregará paquetes
+						- WebGrease
+						- Newtonsoft.Json
+						- Antlr
+						
+			- 
