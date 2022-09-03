@@ -13,3 +13,9 @@
 				- Empty
 				- MVC
 				- Also create a project for unit test con nombre Addressbook.Test
+				
+		- Configurar OWIN middleware
+			- https://docs.microsoft.com/en-us/aspnet/aspnet/overview/owin-and-katana/owin-middleware-in-the-iis-integrated-pipeline
+			- Ir a archivo Global.asax.cs
+			- Ir a Nuget Packages
+				- Install-Package Microsoft.Owin.Host.SystemWeb.es -Version 4.2.0
