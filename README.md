@@ -32,4 +32,9 @@
 				- Install-Package jQuery -Version 3.4.1
 					
 			- Agregar jQuery.Validation
-				- Install-Package jQuery.Validation -Version 1.19.5
+				- Install-Package jQuery.Validation -Version 1.17.0
+				
+			- Agregar Microsoft.jQuery.Unobtrusive.Validation
+				- Install-Package Microsoft.jQuery.Unobtrusive.Validation -Version 3.2.11
+				
+			
