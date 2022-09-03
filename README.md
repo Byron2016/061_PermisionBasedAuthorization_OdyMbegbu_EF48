@@ -19,3 +19,11 @@
 			- Ir a archivo Global.asax.cs
 			- Ir a Nuget Packages
 				- Install-Package Microsoft.Owin.Host.SystemWeb.es -Version 4.2.0
+				
+		- Configurar UI
+			- Agregar bootstrap
+				- Install-Package bootstrap -Version 3.4.1
+					- Esto agregará bootstrap, agregará jQuery
+					- Modifica archivo packages.config
+					- Crea carpeta fonts
+					- Modifica archivo xxx.web.csproj
