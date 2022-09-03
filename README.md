@@ -30,4 +30,6 @@
 					
 			- Agregar jquery
 				- Install-Package jQuery -Version 3.4.1
-					- Esto agregará bootstrap, agregará jQuery
+					
+			- Agregar jQuery.Validation
+				- Install-Package jQuery.Validation -Version 1.19.5
