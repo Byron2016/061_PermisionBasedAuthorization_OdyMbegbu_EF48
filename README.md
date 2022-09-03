@@ -37,4 +37,7 @@
 			- Agregar Microsoft.jQuery.Unobtrusive.Validation
 				- Install-Package Microsoft.jQuery.Unobtrusive.Validation -Version 3.2.11
 				
+			- Agregar Modernizr
+				- Install-Package Modernizr -Version 2.8.3
+				
 			
