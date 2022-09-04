@@ -204,3 +204,14 @@
 						- Instalar en .web paquete Ninject.Web.Common
 							- Install-Package Ninject.Web.Common -Version 3.3.2
 								- Esto añade
+								
+						- configure Ninject
+							- En: gist.github.com/odytrice/5821087
+								- A small Library to configure Ninject (A Dependency Injection Library) with an ASP.NET Application.
+							- En .Web/App_Start crear archivo de tipo clase con nombre: Ninject.Mvc.cs
+								- Quitar del namespace el .App_Start
+								- Copiar contenido de pag. web ahí.
+								
+							- Registrar Ninject library en Global.asax.cs
+								- 
+							
