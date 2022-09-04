@@ -102,3 +102,6 @@
 					
 				- Crear el método login para el post y direccionar la vista login a este método.
 				
+		- Signning
+			- Agregar paquete Microsoft.AspNet.Identity.Core
+				- Install-Package Microsoft.AspNet.Identity.Core -Version 2.2.3
