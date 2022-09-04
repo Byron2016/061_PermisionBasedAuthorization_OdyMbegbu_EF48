@@ -4,7 +4,7 @@
 	- https://www.youtube.com/watch?v=Fk64W-Q-6PA&list=PLWlWcpwzY4Vke2i3vMD319qdCR3r2sf7A&index=1
 	- ASP.NET Web Application(.NET Framework)
 		- https://github.com/odytrice/Addressbook
-		- Crear aplicación
+		- Crear aplicación (061_PermisionBasedAuthorization_OdyMbegbu)
 			- ASP.NET Web Application(.NET Framework)
 			- Nombre:
 				- Project: Addressbook.Web
@@ -179,56 +179,61 @@
 							
 					- Seed Users Data
 						- En En project .Infrastructure Migrations/Configurations.cs/Seed agregar el seed
+
+			- Adding DI
+				- Agregar en raíz de .Core folder Interface
+					- Agregar dentro de este folders Managers y Queries
+				- Cambiar el nombre del folder Services a Managers.
+					- Crear clase AccountManager.cs
+					
+				- Crear interfases
+					- Interface/Manager/IAccountManager
+					- Interface/Manager/IAccountQueries
+					
+				- Mover contenido de carpeta Addressbook.Infrastructure.DataAccess a raíz del proyecto y cambiar namespaces en
+					- Archivos dentro de entidades
+					- DBContext
+					- Configuration.cs
+					
+				- Implementar las queries.
+					- En .Infrastructure agregar Queries/AccountQueries : IAccountQueries
+					
+				- Instalar en .web paquete Ninject
+					- Install-Package Ninject -Version 3.3.6
+					
+				- Instalar en .web paquete Ninject.Web.Common
+					- Install-Package Ninject.Web.Common -Version 3.3.2
+						- Esto añade
 						
-					- Adding DI
-						- Agregar en raíz de .Core folder Interface
-							- Agregar dentro de este folders Managers y Queries
-						- Cambiar el nombre del folder Services a Managers.
-							- Crear clase AccountManager.cs
+				- configure Ninject
+					- En: gist.github.com/odytrice/5821087
+						- A small Library to configure Ninject (A Dependency Injection Library) with an ASP.NET Application.
+					- En .Web/App_Start crear archivo de tipo clase con nombre: Ninject.Mvc.cs
+						- Quitar del namespace el .App_Start
+						- Copiar contenido de pag. web ahí.
+						
+					- Registrar Ninject library en Global.asax.cs
+						- NinjectContainer.RegisterAssembly();
+						
+				- Definir que inyectar en Ninject
+					- Agregar clase Addressbook.Web.Modules/MainModule
+					
+				- Testear
+					- En el .Test añadir referencia a los otros 3 proyectos.
+					- Crear en raíz clase 
+					- Instalar paquetes:
+						- Install-Package Moq -Version 4.18.2
+						- Install-Package Ninject -Version 3.3.6
+						
+				- Agregar clase NinjectTests
+					- https://gist.github.com/odytrice/243fe6c4bf14aedb584c3fc876b9fe42
+				
+					- Use Operational class
+						- github.com/odytrice/Operation
+						- Instalar en todos los proyectos
+							- Install-Package Operation -Version 1.1.2
 							
-						- Crear interfases
-							- Interface/Manager/IAccountManager
-							- Interface/Manager/IAccountQueries
-							
-						- Mover contenido de carpeta Addressbook.Infrastructure.DataAccess a raíz del proyecto y cambiar namespaces en
-							- Archivos dentro de entidades
-							- DBContext
-							- Configuration.cs
-							
-						- Implementar las queries.
-							- En .Infrastructure agregar Queries/AccountQueries : IAccountQueries
-							
-						- Instalar en .web paquete Ninject
-							- Install-Package Ninject -Version 3.3.6
-							
-						- Instalar en .web paquete Ninject.Web.Common
-							- Install-Package Ninject.Web.Common -Version 3.3.2
-								- Esto añade
-								
-						- configure Ninject
-							- En: gist.github.com/odytrice/5821087
-								- A small Library to configure Ninject (A Dependency Injection Library) with an ASP.NET Application.
-							- En .Web/App_Start crear archivo de tipo clase con nombre: Ninject.Mvc.cs
-								- Quitar del namespace el .App_Start
-								- Copiar contenido de pag. web ahí.
-								
-							- Registrar Ninject library en Global.asax.cs
-								- NinjectContainer.RegisterAssembly();
-								
-						- Definir que inyectar en Ninject
-							- Agregar clase Addressbook.Web.Modules/MainModule
-							
-						- Testear
-							- En el .Test añadir referencia a los otros 3 proyectos.
-							- Crear en raíz clase 
-							- Instalar paquetes:
-								- Install-Package Moq -Version 4.18.2
-								- Install-Package Ninject -Version 3.3.6
-								
-							- Agregar clase NinjectTests
-								- https://gist.github.com/odytrice/243fe6c4bf14aedb584c3fc876b9fe42
-							
-						- Use Operational class
-							- github.com/odytrice/Operation
-							- Instalar en todos los proyectos
-								- Install-Package Operation -Version 1.1.2
+		- Quitar manejo manual de claims y dejar que UserManager cree automáticamente.(V.14)
+			- Crear un objeto que representa al usuario. Usaremos UserModel en .Core/Models
+			- Renombar .Web/Models/UserModel a .Web/Models/User
+			- .Web/Models/User hereda de IUser<int>
