@@ -125,4 +125,14 @@
 				- Agregar referencias en web a Core e Infrastructure
 				- Agregar referencias en Infrastructure a Core
 				
+			- Code First
+				- En libraría Core crear en la raíz folder Services
+					- Agregar clase AccountService
+					- Agregar bussiness objets
+						- Crear folder Models
+						- Crear clases: 
+							- UserModel
+							- RoleModel
+							- PermissionModel
+				- En librería Infrastructure crear en la raíz folder Utilities
 				
