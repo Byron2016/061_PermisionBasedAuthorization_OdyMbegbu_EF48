@@ -147,3 +147,8 @@
 							
 							- Users has UserRoles, UserRoles to Roles, Roles to RolePermissions, RolePremissions to Permissions
 				
+					- Crear DBContext
+						- Agregar paquete EntityFramework
+							- Debe ser agregado en Infrastructure, Web 
+							- Install-Package EntityFramework -Version 6.4.4
+						- En carpeta DataAccess crear clase AddressBookContext : DBContext
