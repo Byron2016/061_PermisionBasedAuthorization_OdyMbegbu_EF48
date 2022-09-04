@@ -126,7 +126,8 @@
 				- Agregar referencias en Infrastructure a Core
 				
 			- Code First
-				- En libraría Core crear en la raíz folder Services
+				- En libraría Core 
+					- Crear en la raíz folder Services
 					- Agregar clase AccountService
 					- Agregar bussiness objets
 						- Crear folder Models
@@ -134,5 +135,15 @@
 							- UserModel
 							- RoleModel
 							- PermissionModel
-				- En librería Infrastructure crear en la raíz folder Utilities
+				- En librería Infrastructure 
+					- Crear en la raíz folder Utilities
+					- Crear en la raíz folder DataAccess
+						- Crear folder Entities
+							- Agregar clase User
+							- Agregar clase UserRole
+							- Agregar clase Role
+							- Agregar clase RolePermission
+							- Agregar clase Permissions
+							
+							- Users has UserRoles, UserRoles to Roles, Roles to RolePermissions, RolePremissions to Permissions
 				
