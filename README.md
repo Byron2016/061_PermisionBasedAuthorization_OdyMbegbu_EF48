@@ -99,3 +99,6 @@
 				- Agregar AccountController y crear una vista para método Login
 					- Ir a la página de bootstrap/Components/css/forms y compiar el ejemplo Horizontal form.
 					- 
+					
+				- Crear el método login para el post y direccionar la vista login a este método.
+				
