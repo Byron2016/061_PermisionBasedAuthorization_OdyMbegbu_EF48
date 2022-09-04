@@ -228,4 +228,7 @@
 							- Agregar clase NinjectTests
 								- https://gist.github.com/odytrice/243fe6c4bf14aedb584c3fc876b9fe42
 							
-						- 
+						- Use Operational class
+							- github.com/odytrice/Operation
+							- Instalar en todos los proyectos
+								- Install-Package Operation -Version 1.1.2
