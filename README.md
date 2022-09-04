@@ -105,3 +105,12 @@
 		- Signning
 			- Agregar paquete Microsoft.AspNet.Identity.Core
 				- Install-Package Microsoft.AspNet.Identity.Core -Version 2.2.3
+			- Definir en el owin startup el tipo de autenticación
+				- AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+			- Definir en web.config el modo de authentication dentro de tags system.web
+				- <authentication mode="None" />
+			- Agregar métodos de login  y logout.
+			
+		- Implement Role Base Segurity (V.8 7.32)
+			- Poner en algun método [Authorize(Roles ="Admin")]
+			- Asegurar que el usuario tiene un claim role
