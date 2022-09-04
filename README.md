@@ -56,3 +56,14 @@
 					- Addressbook.Web/Views/Shared/_Layout.cshtml
 					- Addressbook.Web/Views/_ViewStart.cshtml
 					- Además el controlador y la vista antes indicados.
+
+			- Agregar un BundleConfig y usarlo en _Layout
+				- End-to-End ASP.NET MVC: Adding BundleConfig
+					- https://www.techjunkieblog.com/2015/05/aspnet-mvc-empty-project-adding.html
+						- Agregar a carpeta App_Start la clase BundleConfig
+						- Llenar el contenido de los Bundles que se deseen.
+						- En _Layout llamar al arroba Styles.Render("~/Content/css") y todos los que se requieran.
+						- En el Views/web.config sección namespaces agregar
+							- <add namespace="System.Web.Optimization"></add>
+						- Agregar en el Global.asx.cs la referencia al BundleConfig
+							- BundleConfig.RegisterBundles(BundleTable.Bundles);
