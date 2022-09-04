@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Addressbook.Infrastructure.DataAccess.DataCoontext>
+    internal sealed class Configuration : DbMigrationsConfiguration<DataAccess.DataContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Addressbook.Infrastructure.DataAccess.DataCoontext context)
+        protected override void Seed(DataAccess.DataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

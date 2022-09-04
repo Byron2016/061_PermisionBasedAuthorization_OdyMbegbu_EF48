@@ -162,7 +162,16 @@
 							<add name="DataContext" connectionString="Data Source=(local);Initial Catalog=db_AddressBook;Integrated Security=True;User ID=sa;Password=123456;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient"/>
 						</connectionStrings>
 						
+						<connectionStrings>
+							<add name="DataContext" connectionString="Data Source=localhost;Initial Catalog=db_AddressBook;persist security info=True;User ID=sa;Password=123456;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient"/>
+						</connectionStrings>
+						
 					- En el Package Manager ir al proyecto donde está el DBContext
 						- enable-migrations -verbose
 							- Esto creará dentro de project infraestructure una carpeta Migrations con una clase Configurations.
 					
+					- Habilitar migraciones
+						- En project .Infrastructure Migrations/Configurations.cs modificar a true AutomaticMigrationsEnabled
+						
+						- Ejecutar en Package Manager del proyecto infraestructure 
+							- update-database -verbose
