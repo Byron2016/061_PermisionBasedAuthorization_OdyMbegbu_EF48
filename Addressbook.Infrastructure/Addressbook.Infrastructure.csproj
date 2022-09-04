@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DataAccess\AddressBookContext.cs" />
+    <Compile Include="DataAccess\DataCoontext.cs" />
     <Compile Include="DataAccess\Entities\Permission.cs" />
     <Compile Include="DataAccess\Entities\Role.cs" />
     <Compile Include="DataAccess\Entities\RolePermission.cs" />

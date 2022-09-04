@@ -155,3 +155,14 @@
 						
 					- Agregar DBSets a DBContext
 						- Para las clases que definimos anteriormente.
+						
+				- Agregar conexionString y hacer migración.
+					- En project .web ir a Web.config debajo del tag appSettings agregar nuevo connectionStrings y configurarlo. (www.connectionstrings.com/)
+						<connectionStrings>
+							<add name="DataContext" connectionString="Data Source=(local);Initial Catalog=db_AddressBook;Integrated Security=True;User ID=sa;Password=123456;MultipleActiveResultSets=True;App=EntityFramework" providerName="System.Data.SqlClient"/>
+						</connectionStrings>
+						
+					- En el Package Manager ir al proyecto donde está el DBContext
+						- enable-migrations -verbose
+							- Esto creará dentro de project infraestructure una carpeta Migrations con una clase Configurations.
+					
