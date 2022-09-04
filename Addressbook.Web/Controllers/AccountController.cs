@@ -12,6 +12,8 @@ namespace Addressbook.Web.Controllers
 {
     public class AccountController : Controller
     {
+        // If also can define it and make it readonly, without a set: stackoverflow.com/questions/17881091/getter-and-setter-declaration-in-net
+        //docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
         public IAuthenticationManager  Authentication => HttpContext.GetOwinContext().Authentication; //new CSharp sintax.
         // GET: Account
         public ActionResult Login()

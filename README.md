@@ -114,3 +114,15 @@
 		- Implement Role Base Segurity (V.8 7.32)
 			- Poner en algun método [Authorize(Roles ="Admin")]
 			- Asegurar que el usuario tiene un claim role
+			
+		- Uso de User Manager (V.9)
+			- Crear las EF clases
+				- Agregar un nuevo proyecto "Class Library (.NET Framework) A project for creating a C# class library (.dll)" 
+					- con nombre Addressbook.Core
+				- Agregar un nuevo proyecto "Class Library (.NET Framework) A project for creating a C# class library (.dll)" 
+					- con nombre Addressbook.Infrastructure
+					
+				- Agregar referencias en web a Core e Infrastructure
+				- Agregar referencias en Infrastructure a Core
+				
+				
