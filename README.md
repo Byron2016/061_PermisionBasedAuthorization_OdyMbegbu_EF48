@@ -194,3 +194,13 @@
 							- Archivos dentro de entidades
 							- DBContext
 							- Configuration.cs
+							
+						- Implementar las queries.
+							- En .Infrastructure agregar Queries/AccountQueries : IAccountQueries
+							
+						- Instalar en .web paquete Ninject
+							- Install-Package Ninject -Version 3.3.6
+							
+						- Instalar en .web paquete Ninject.Web.Common
+							- Install-Package Ninject.Web.Common -Version 3.3.2
+								- Esto añade
