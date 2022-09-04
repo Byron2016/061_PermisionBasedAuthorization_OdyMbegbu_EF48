@@ -213,5 +213,19 @@
 								- Copiar contenido de pag. web ahí.
 								
 							- Registrar Ninject library en Global.asax.cs
-								- 
+								- NinjectContainer.RegisterAssembly();
+								
+						- Definir que inyectar en Ninject
+							- Agregar clase Addressbook.Web.Modules/MainModule
 							
+						- Testear
+							- En el .Test añadir referencia a los otros 3 proyectos.
+							- Crear en raíz clase 
+							- Instalar paquetes:
+								- Install-Package Moq -Version 4.18.2
+								- Install-Package Ninject -Version 3.3.6
+								
+							- Agregar clase NinjectTests
+								- https://gist.github.com/odytrice/243fe6c4bf14aedb584c3fc876b9fe42
+							
+						- 
