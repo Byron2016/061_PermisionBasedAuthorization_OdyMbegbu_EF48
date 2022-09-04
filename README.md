@@ -179,4 +179,13 @@
 							
 					- Seed Users Data
 						- En En project .Infrastructure Migrations/Configurations.cs/Seed agregar el seed
-							- 
+						
+					- Adding DI
+						- Agregar en raíz de .Core folder Interface
+							- Agregar dentro de este folders Managers y Queries
+						- Cambiar el nombre del folder Services a Managers.
+							- Crear clase AccountManager.cs
+							
+						- Crear interfases
+							- Interface/Manager/IAccountManager
+							- Interface/Manager/IAccountQueries

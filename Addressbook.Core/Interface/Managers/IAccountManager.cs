@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Addressbook.Core.Services
+namespace Addressbook.Core.Interface.Managers
 {
-    public class AccountService
+    public interface IAccountManager
     {
     }
 }
