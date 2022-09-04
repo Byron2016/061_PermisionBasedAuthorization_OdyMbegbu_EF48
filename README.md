@@ -67,3 +67,10 @@
 							- <add namespace="System.Web.Optimization"></add>
 						- Agregar en el Global.asx.cs la referencia al BundleConfig
 							- BundleConfig.RegisterBundles(BundleTable.Bundles);
+							
+			- Agregar tema de bootstrap Lummen
+				- Ir a https://startbootstrap.com/themes
+				- Copiar el bootstrap que se indica
+				- Cambiar en la aplicación.
+				
+			- 
