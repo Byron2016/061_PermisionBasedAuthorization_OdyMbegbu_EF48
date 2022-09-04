@@ -175,3 +175,8 @@
 						
 						- Ejecutar en Package Manager del proyecto infraestructure 
 							- update-database -verbose
+							
+							
+					- Seed Users Data
+						- En En project .Infrastructure Migrations/Configurations.cs/Seed agregar el seed
+							- 
