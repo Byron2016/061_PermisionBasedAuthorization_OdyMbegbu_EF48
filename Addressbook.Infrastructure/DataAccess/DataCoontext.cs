@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Addressbook.Infrastructure.DataAccess.Entities;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace Addressbook.Infrastructure.DataAccess
 {
     public class DataCoontext : DbContext
     {
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<RolePermission> RolePermissions { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
         public DataCoontext() : base("DataEntities")
         {
 

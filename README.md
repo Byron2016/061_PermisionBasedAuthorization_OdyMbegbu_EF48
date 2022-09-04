@@ -152,3 +152,6 @@
 							- Debe ser agregado en Infrastructure, Web 
 							- Install-Package EntityFramework -Version 6.4.4
 						- En carpeta DataAccess crear clase AddressBookContext : DBContext
+						
+					- Agregar DBSets a DBContext
+						- Para las clases que definimos anteriormente.
