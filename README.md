@@ -49,3 +49,10 @@
 						
 			- Agregar OWIN StartUP Class
 				- Agregar a raíz del proyecto un nuevo elemento OWIN Startup class con nombre Startup.cs
+				
+			- Agregar controllador Home y la vista index
+				- Esto como es un proyecto vacío agregará los siguientes componentes:
+					- Addressbook.Web/Content/Site.css
+					- Addressbook.Web/Views/Shared/_Layout.cshtml
+					- Addressbook.Web/Views/_ViewStart.cshtml
+					- Además el controlador y la vista antes indicados.
