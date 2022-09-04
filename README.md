@@ -47,4 +47,5 @@
 						- Newtonsoft.Json
 						- Antlr
 						
-			- 
+			- Agregar OWIN StartUP Class
+				- Agregar a raíz del proyecto un nuevo elemento OWIN Startup class con nombre Startup.cs
