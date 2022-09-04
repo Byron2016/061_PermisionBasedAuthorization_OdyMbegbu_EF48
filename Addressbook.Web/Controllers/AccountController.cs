@@ -1,4 +1,7 @@
-﻿using Addressbook.Web.Models;
+﻿using Addressbook.Core.Interface.Managers;
+using Addressbook.Core.Models;
+using Addressbook.Web.Models;
+using Addressbook.Web.Utils;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 using System;
@@ -12,9 +15,21 @@ namespace Addressbook.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<User, int> _user;
+
         // If also can define it and make it readonly, without a set: stackoverflow.com/questions/17881091/getter-and-setter-declaration-in-net
         //docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/using-properties
         public IAuthenticationManager  Authentication => HttpContext.GetOwinContext().Authentication; //new CSharp sintax.
+
+
+
+        public AccountController(IAccountManager account)
+        {
+            _user = new UserManager<User, int>(new UserStore(account)); //v15 5.17
+        }
+
+
+
         // GET: Account
         public ActionResult Login()
         {
@@ -24,6 +39,29 @@ namespace Addressbook.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
+            Operation.Create(() =>
+            {
+                if (ModelState.IsValid)
+                {
+                    var user = _user.Find(model.Email, model.Password);
+                    if (user == null) 
+                        throw new Exception("Invalid Username");
+
+                    SignIn(user, model.RememberMe);
+                    return user;
+                }
+                else
+                {
+                    var error = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .Aggregate((ag, e) =>  ag + ", " + e );
+
+                    throw new Exception(error);
+                }
+            });
+
+
             //TODO: Perform Validation
             var isValid = true;
 
@@ -48,7 +86,7 @@ namespace Addressbook.Web.Controllers
             }
         }
 
-        private void SignIn(LoginModel model)
+        private void SignIn(User model, bool rememberMe)
         {
             var claims = new Claim[]{
                 new Claim(ClaimTypes.NameIdentifier, "1"),
@@ -59,7 +97,8 @@ namespace Addressbook.Web.Controllers
 
             var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
 
-            Authentication.SignIn(identity);
+            // Authentication.SignIn(identity);
+            Authentication.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity); //V15 9.24
         }
 
         public ActionResult LogOut()

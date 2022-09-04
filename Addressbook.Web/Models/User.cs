@@ -1,15 +1,23 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Addressbook.Core.Models;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 
 namespace Addressbook.Web.Models
 {
-    public class User : IUser<int>
+    public class User : UserModel, IUser<int>
     {
-        public int Id { get; set; }
+        public int Id { 
+            get { return UserId; } 
+            set { UserId = value; } 
+        }
 
-        public string UserName { get; set; }
+        public string UserName { 
+            get { return Email; } 
+            set { Email = value; } 
+        }
     }
 }

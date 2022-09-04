@@ -237,3 +237,10 @@
 			- Crear un objeto que representa al usuario. Usaremos UserModel en .Core/Models
 			- Renombar .Web/Models/UserModel a .Web/Models/User
 			- .Web/Models/User hereda de IUser<int>
+			
+			- Implementar UserStore
+				- Este es el que le dice a EF como CRUD
+				- Addressbook.Web.Utils/UserStore : IUserStore<User, int>
+				- Crear constructor inyectar IAccountManager account
+				
+			- 
