@@ -78,5 +78,24 @@
 				- [Authorize]
 					- Esto no me permite ingresar y desplegará mensajde de IIS con error 401
 			- Agregar paquete Microsoft.Owin.Security.Cookies
-				- Install-Package Microsoft.Owin.Security.Cookies
+				- Install-Package Microsoft.Owin.Security.Cookies -Version 3.0.1
+					- Agrega automáticamente  Microsoft.Owin.Security
 				- Permite hacer autenticación usando cookies
+				
+			- Reenviar aplicación a página de error propia.
+				- En owin startup crear un método que llame pagina de error.
+					```cs
+					private static void ConfigureAuth(IAppBuilder app)
+					{
+						app.UseCookieAuthentication(new CookieAuthenticationOptions
+						{
+							LoginPath = new PathString("/account/login"),
+						});
+					}
+					```
+					
+					Con esto cada vez que tratemos de ir a la página del index del homeController nos enviará a la página de login x q no estamos autorizados.
+					
+				- Agregar AccountController y crear una vista para método Login
+					- Ir a la página de bootstrap/Components/css/forms y compiar el ejemplo Horizontal form.
+					- 
