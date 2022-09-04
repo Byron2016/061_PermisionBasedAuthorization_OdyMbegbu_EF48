@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Addressbook.Infrastructure.DataAccess.Entities
+namespace Addressbook.Infrastructure.Entities
 {
     public class RolePermission
     {

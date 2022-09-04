@@ -189,3 +189,8 @@
 						- Crear interfases
 							- Interface/Manager/IAccountManager
 							- Interface/Manager/IAccountQueries
+							
+						- Mover contenido de carpeta Addressbook.Infrastructure.DataAccess a raíz del proyecto y cambiar namespaces en
+							- Archivos dentro de entidades
+							- DBContext
+							- Configuration.cs

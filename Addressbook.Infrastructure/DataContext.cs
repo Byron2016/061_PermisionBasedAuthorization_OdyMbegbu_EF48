@@ -1,4 +1,4 @@
-﻿using Addressbook.Infrastructure.DataAccess.Entities;
+﻿using Addressbook.Infrastructure.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Addressbook.Infrastructure.DataAccess
+namespace Addressbook.Infrastructure
 {
     public class DataContext : DbContext
     {
