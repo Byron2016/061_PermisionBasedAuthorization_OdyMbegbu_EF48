@@ -73,4 +73,10 @@
 				- Copiar el bootstrap que se indica
 				- Cambiar en la aplicación.
 				
-			- 
+		- Configurar OWIN middleware continuación
+			- Colocar en la clase HomeController
+				- [Authorize]
+					- Esto no me permite ingresar y desplegará mensajde de IIS con error 401
+			- Agregar paquete Microsoft.Owin.Security.Cookies
+				- Install-Package Microsoft.Owin.Security.Cookies
+				- Permite hacer autenticación usando cookies
