@@ -9,13 +9,18 @@ using System.Web;
 
 namespace Addressbook.Web.Utils
 {
-    public class UserStore : IUserStore<User, int>, IUserPasswordStore<User, int>
+    public class UserStore : IUserStore<User, int>, IUserPasswordStore<User, int>, IUserRoleStore<User, int>
     {
         private IAccountManager _account;
 
         public UserStore(IAccountManager account)
         {
             _account = account;
+        }
+
+        public Task AddToRoleAsync(User user, string roleName)
+        {
+            throw new NotImplementedException();
         }
 
         public Task CreateAsync(User user)
@@ -48,7 +53,22 @@ namespace Addressbook.Web.Utils
             throw new NotImplementedException();
         }
 
+        public Task<IList<string>> GetRolesAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<bool> HasPasswordAsync(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> IsInRoleAsync(User user, string roleName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task RemoveFromRoleAsync(User user, string roleName)
         {
             throw new NotImplementedException();
         }

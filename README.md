@@ -248,3 +248,10 @@
 		- Hasta V16. 5.20
 		
 		- V16 5.20 - 8.39 Create Identity in SignIn Method
+		
+		- V16 9.01 Agregar Roles
+			- Hacer que UserStore que implemente de IUserRoleStore<User, int>, esto agregará los siguientes métodos a UserStore:
+				- AddToRoleAsync
+				- GetRolesAsync
+				- IsInRoleAsync
+				- RemoveFromRoleAsync
