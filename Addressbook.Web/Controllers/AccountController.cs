@@ -40,8 +40,6 @@ namespace Addressbook.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            //validate user
-            //sigin user
             var validateAndSigIn = from user in ValidateUser(model)
                                    from signIn in SignIn(user, model.RememberMe)
                                    select user;

@@ -291,3 +291,14 @@
 			- Crear en raíz del proyecto Addressbook.Core clase estática "Extensions" V.17 2.0
 				- Esta tendrá el namespace Addressbook a fin que se pueda usar en todos los sitios.
 				- Agregamos el tag [DebuggerStepThrough] al método Assign para que no haga Debug.
+				
+			- Implementar métodos en AccountManager V18 4.23 - 8.29
+				- DeleteUser
+				- UpdateUser
+				- SetPasswordHash
+				- RemoveFromRole
+				- IsUserInRole
+				- GetRoles
+				- GetPasswordHash
+				- FindByEmail
+				- FindById
