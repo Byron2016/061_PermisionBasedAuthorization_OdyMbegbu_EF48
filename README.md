@@ -255,3 +255,18 @@
 				- GetRolesAsync
 				- IsInRoleAsync
 				- RemoveFromRoleAsync
+				
+			- Colocar código en métodos existentes en UserStore
+				- DeleteAsync
+				- Dispose
+				- FindByIdAsync
+				- FindByNameAsync
+				- GetPasswordHashAsync
+				- GetRolesAsync
+				- HasPasswordAsync
+				- IsInRoleAsync
+				- RemoveFromRoleAsync
+				- SetPasswordHashAsync
+				- UpdateAsync
+
+			- 
