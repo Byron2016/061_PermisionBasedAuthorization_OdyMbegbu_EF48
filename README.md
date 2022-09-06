@@ -287,3 +287,7 @@
 					
 				  Usamos
 					this.Assign(model);
+					
+			- Crear en raíz del proyecto Addressbook.Core clase estática "Extensions" V.17 2.0
+				- Esta tendrá el namespace Addressbook a fin que se pueda usar en todos los sitios.
+				- Agregamos el tag [DebuggerStepThrough] al método Assign para que no haga Debug.

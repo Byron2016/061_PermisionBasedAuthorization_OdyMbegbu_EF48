@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions.cs" />
     <Compile Include="Interface\Managers\IAccountManager.cs" />
     <Compile Include="Interface\Queries\IAccountQueries.cs" />
     <Compile Include="Managers\AccountManager.cs" />
