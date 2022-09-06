@@ -60,7 +60,7 @@ namespace Addressbook.Web.Controllers
             }
         }
 
-        private Operation<UserModel> ValidateUser(LoginModel model) //v16 0.16
+        private Operation<User> ValidateUser(LoginModel model) //v16 0.16
         {
             return Operation.Create(() =>
             {
@@ -69,7 +69,7 @@ namespace Addressbook.Web.Controllers
                     var user = _user.Find(model.Email, model.Password);
                     if (user == null)
                         throw new Exception("Invalid Username");
-                    return user as UserModel;
+                    return user;
                 }
                 else
                 {
@@ -83,21 +83,14 @@ namespace Addressbook.Web.Controllers
             });
         }
 
-        private Operation<ClaimsIdentity> SignIn(UserModel model, bool rememberMe)
+        private Operation<ClaimsIdentity> SignIn(User model, bool rememberMe)
         {
             return Operation.Create(() =>
             {
-                //v16 2.42
-                var claims = new Claim[]{
-                new Claim(ClaimTypes.NameIdentifier, "1"),
-                new Claim(ClaimTypes.Email, model.Email),
-                new Claim(ClaimTypes.Name, model.Email),
-                new Claim(ClaimTypes.Role, "Admin")
-            };
+                var identity = _user.CreateIdentity(model, DefaultAuthenticationTypes.ApplicationCookie);
 
-                var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                //Optionally add additiona claims
 
-                // Authentication.SignIn(identity);
                 Authentication.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity); //V15 9.24
 
                 return identity;

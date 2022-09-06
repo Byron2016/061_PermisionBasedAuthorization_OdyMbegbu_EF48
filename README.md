@@ -246,3 +246,5 @@
 			- 
 			
 		- Hasta V16. 5.20
+		
+		- V16 5.20 - 8.39 Create Identity in SignIn Method
