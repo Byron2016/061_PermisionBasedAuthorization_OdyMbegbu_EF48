@@ -279,3 +279,11 @@
 				- Operation<string> GetPasswordHash(UserModel user);
 				- Operation<UserModel> FindByEmail(string userId);
 				- Operation<UserModel> FindById(int userId);
+				
+			- Agregar constructores a clase User en Addressbook.Web.Models
+				- Para no tener que hacer
+					this.Email = model.Email;
+					this.Password = model.Password;
+					
+				  Usamos
+					this.Assign(model);
