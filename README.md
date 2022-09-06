@@ -244,3 +244,5 @@
 				- Crear constructor inyectar IAccountManager account
 				
 			- 
+			
+		- Hasta V16. 5.20

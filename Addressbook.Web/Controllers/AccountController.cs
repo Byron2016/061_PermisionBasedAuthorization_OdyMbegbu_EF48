@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Mvc;
 
@@ -39,46 +40,19 @@ namespace Addressbook.Web.Controllers
         [HttpPost]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            Operation.Create(() =>
-            {
-                if (ModelState.IsValid)
-                {
-                    var user = _user.Find(model.Email, model.Password);
-                    if (user == null) 
-                        throw new Exception("Invalid Username");
-
-                    SignIn(user, model.RememberMe);
-                    return user;
-                }
-                else
-                {
-                    var error = ModelState.Values
-                    .SelectMany(v => v.Errors)
-                    .Select(e => e.ErrorMessage)
-                    .Aggregate((ag, e) =>  ag + ", " + e );
-
-                    throw new Exception(error);
-                }
-            });
-
+            //validate user
+            //sigin user
+            var validateAndSigIn = from user in ValidateUser(model)
+                                   from signIn in SignIn(user, model.RememberMe)
+                                   select user;
 
             //TODO: Perform Validation
-            var isValid = true;
+            var isValid = validateAndSigIn.Succeeded;
 
             //Sign User in
             if (isValid)
             {
-                SignIn(model);
                 return RedirectToAction("Index", "Home");
-                //Redirect to HomeController
-                //if (!string.IsNullOrEmpty(returnUrl))
-                //{
-                //    return Redirect(returnUrl);
-                //}
-                //else
-                //{
-                //    return RedirectToAction("Index", "Home");
-                //}
             }
             else
             {
@@ -86,19 +60,49 @@ namespace Addressbook.Web.Controllers
             }
         }
 
-        private void SignIn(User model, bool rememberMe)
+        private Operation<UserModel> ValidateUser(LoginModel model) //v16 0.16
         {
-            var claims = new Claim[]{
+            return Operation.Create(() =>
+            {
+                if (ModelState.IsValid)
+                {
+                    var user = _user.Find(model.Email, model.Password);
+                    if (user == null)
+                        throw new Exception("Invalid Username");
+                    return user as UserModel;
+                }
+                else
+                {
+                    var error = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .Aggregate((ag, e) => ag + ", " + e);
+
+                    throw new Exception(error);
+                }
+            });
+        }
+
+        private Operation<ClaimsIdentity> SignIn(UserModel model, bool rememberMe)
+        {
+            return Operation.Create(() =>
+            {
+                //v16 2.42
+                var claims = new Claim[]{
                 new Claim(ClaimTypes.NameIdentifier, "1"),
                 new Claim(ClaimTypes.Email, model.Email),
                 new Claim(ClaimTypes.Name, model.Email),
                 new Claim(ClaimTypes.Role, "Admin")
             };
 
-            var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
+                var identity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ApplicationCookie);
 
-            // Authentication.SignIn(identity);
-            Authentication.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity); //V15 9.24
+                // Authentication.SignIn(identity);
+                Authentication.SignIn(new AuthenticationProperties { IsPersistent = rememberMe }, identity); //V15 9.24
+
+                return identity;
+            });
+            
         }
 
         public ActionResult LogOut()
